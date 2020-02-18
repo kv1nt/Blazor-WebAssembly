@@ -1,0 +1,28 @@
+﻿@page "/"
+
+    <label>Name</label><input type="text" @bind="@name" />
+    <label>Pwd</label><input type="text" @bind="@pwd" />
+    <label>Email</label><input type="text" @bind="@email" />
+
+    <button @onclick="@CreateNewUser">Crete New User</button>
+
+    <TestComponent Users="@testComponentState"></TestComponent>
+
+
+@code{
+    string name, pwd, email;
+
+    TestComponentState testComponentState = new TestComponentState();
+
+    void CreateNewUser()
+    {
+        testComponentState.OnAddUserToSate(new UserViewModel() {
+            Id = Guid.NewGuid(),
+            Name = name,
+            Password = pwd,
+            Email = email
+        });
+
+        name = email = pwd = "";
+    }
+}

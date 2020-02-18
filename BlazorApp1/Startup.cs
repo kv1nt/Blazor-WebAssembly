@@ -1,0 +1,19 @@
+using BlazorApp1.Pages;
+using Microsoft.AspNetCore.Components.Builder;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace BlazorApp1
+{
+    public class Startup
+    {
+        public void ConfigureServices(IServiceCollection services)
+        {
+        }
+
+        public void Configure(IComponentsApplicationBuilder app)
+        {
+            app.AddComponent<App>("app");
+            app.AddComponent<TestComponent>("test");
+        }
+    }
+}

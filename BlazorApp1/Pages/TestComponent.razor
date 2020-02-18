@@ -1,0 +1,13 @@
+﻿
+@foreach (var user in Users.OnGetUserFromSate())
+{
+    <p>User Id: @user.Id</p>
+    <p>User Name: @user.Name</p>
+    <p>User Pwd: @user.Password</p>
+    <p>User Email: @user.Email</p>
+}
+
+@code {
+
+    [Parameter] public TestComponentState Users { get; set; }
+ }
